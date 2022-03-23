@@ -12,11 +12,16 @@ export class dQuery {
 	 **/
 	constructor(element) {
 		this.doc = document.querySelectorAll(element);
+		if (this.doc.length === 1) {
+			this.doc = this.doc[0];
+		}
 		return this;
 	}
 
 	first = () => {
-		this.doc = this.doc[0];
+		if (typeof this.doc[0] !== "undefined") {
+			this.doc = this.doc[0];
+		}
 		return this;
 	};
 
